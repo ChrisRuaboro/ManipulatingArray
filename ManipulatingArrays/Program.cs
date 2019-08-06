@@ -12,7 +12,7 @@ namespace ManipulatingArrays
             int[] arrayC = { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9 };
             int[] arrayD = { 5, 9, 21, 65, 436, 23, 1 };
 
-            /*Console.WriteLine("Counting, summing, computing the mean");
+            Console.WriteLine("Counting, summing, computing the mean");
             MeanOfArray(arrayC);
 
             //Write a method that accepts an array as an argument and prints the reversed array. 
@@ -25,7 +25,7 @@ namespace ManipulatingArrays
             Console.WriteLine("Rotating Arrays:");
             ShowResults(RotatingArray("left", 2, arrayA));
             ShowResults(RotatingArray("right", 2, arrayB));
-            ShowResults(RotatingArray("left", 4, arrayC));*/
+            ShowResults(RotatingArray("left", 4, arrayC));
 
             //Sorting arrays
             Console.WriteLine("Sorting arrays:");
