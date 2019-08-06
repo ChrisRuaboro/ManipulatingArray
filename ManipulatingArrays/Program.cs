@@ -10,25 +10,31 @@ namespace ManipulatingArrays
             int[] arrayA = { 0, 2, 4, 6, 8, 10 };
             int[] arrayB = { 1, 3, 5, 7, 9 };
             int[] arrayC = { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9 };
+            int[] arrayD = { 5, 9, 21, 65, 436, 23, 1 };
 
-            //Counting, summing, computing the mean
+            /*Console.WriteLine("Counting, summing, computing the mean");
             MeanOfArray(arrayC);
 
-            //Reversing arrays
             //Write a method that accepts an array as an argument and prints the reversed array. 
             //For example, if you pass the method Array B, it should print[9, 7, 5, 3, 1].
             //Print the reverse of all three arrays.
+            Console.WriteLine("Reverse Arrays:");
             ShowResults(reverseArray(arrayB));
 
             //Rotating arrays
+            Console.WriteLine("Rotating Arrays:");
             ShowResults(RotatingArray("left", 2, arrayA));
             ShowResults(RotatingArray("right", 2, arrayB));
-            ShowResults(RotatingArray("left", 4, arrayC));
+            ShowResults(RotatingArray("left", 4, arrayC));*/
 
             //Sorting arrays
+            Console.WriteLine("Sorting arrays:");
+            //ShowResults(sortArrayEasy(arrayC));
+            ShowResults(sortArraySelectionSort(arrayC));
         }
         public static int[] reverseArray(int[] inputArray)
         {
+            //Array.Reverse(); can also be used
             int[] answer = inputArray;
             for (int i = 0; i < inputArray.Length/2; i++)
             {
@@ -64,7 +70,7 @@ namespace ManipulatingArrays
             //Method that prints the results of returned answers to the screen
             for (int i = 0; i < answer.Length; i++)
             {
-                Console.WriteLine($"{i} : {answer[i]}");
+                Console.WriteLine($"Index [{i}]:{answer[i]}, ");
             }
         }
         public static int[] RotatingArray(string direction, int offset, int[] inputArray)
@@ -110,6 +116,42 @@ namespace ManipulatingArrays
                 while (offset != 0);//boolean condition to stop loop
             }
             return answer;
+        }
+        public static int[] sortArrayEasy(int[] inputArray)
+        {
+            //Easy solution, this built in method uses quicksort.
+            Array.Sort(inputArray);
+            return inputArray;
+        }
+        public static int[] sortArraySelectionSort(int[] inputArray)
+        {
+            //initialize min and temp out of the scope of loops
+            int min, temp;
+            for (int i = 0; i < inputArray.Length-1; i++)
+            {
+                //sets minimum to element i
+                min = i;
+                //finds minimum based off of elements of greater index
+                for(int x = i+1; x < inputArray.Length;x++)
+                {
+                    //if lower number is found, set new min to the index of low number that was found
+                    if (inputArray[x]<inputArray[min])
+                    {
+                        min = x;
+                    }
+                }
+                //if lower number was found, the new min value wont equal i
+                //This code swaps the value of inputArray[min] and inputArray[i]
+                //If min is the same as i then this code never executes as the lower number is already
+                //in the correct place.
+                if (min != i)
+                {
+                    temp = inputArray[min]; // Copy the first position's element
+                    inputArray[min] = inputArray[i]; // Assign to the second element
+                    inputArray[i] = temp;
+                }
+            }
+            return inputArray;
         }
     }
 }
