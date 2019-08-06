@@ -69,6 +69,8 @@ namespace ManipulatingArrays
         }
         public static int[] RotatingArray(string direction, int offset, int[] inputArray)
         {
+            //Realizing that i couldve made seperate methods for how many times it should perform and another
+            //method for right rotate or left
             //create new array to where the elements will be populated based on direction given and offset.
             int[] answer = inputArray;
             //leftrotate
